@@ -1,0 +1,237 @@
+/* Wrapper */
+.pn-wrapper {
+    position: relative;
+}
+
+/* Bell Button */
+.pn-bell-btn {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: var(--surface-2);
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.pn-bell-btn:hover {
+    background: var(--surface-3);
+    transform: translateY(-1px);
+}
+
+/* Ring animation */
+.pn-bell-btn.ring svg {
+    animation: bellRing 0.8s cubic-bezier(.36, .07, .19, .97) both;
+    transform-origin: top center;
+}
+
+@keyframes bellRing {
+
+    10%,
+    90% {
+        transform: rotate(-8deg);
+    }
+
+    20%,
+    80% {
+        transform: rotate(10deg);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: rotate(-12deg);
+    }
+
+    40%,
+    60% {
+        transform: rotate(12deg);
+    }
+}
+
+/* Badge */
+.pn-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    background: var(--accent);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    border: 2px solid var(--surface);
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Dropdown */
+.pn-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 340px;
+    background: var(--surface);
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+    z-index: 999;
+    overflow: hidden;
+    animation: dropIn 0.2s ease;
+}
+
+@keyframes dropIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header */
+.pn-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    font-weight: 700;
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+.pn-mark-all {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.75rem;
+    color: var(--primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    transition: background 0.15s;
+}
+
+.pn-mark-all:hover {
+    background: var(--surface-2);
+}
+
+/* List */
+.pn-list {
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+/* Item */
+.pn-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.85rem 1.25rem;
+    cursor: pointer;
+    transition: background 0.15s;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    background: var(--surface);
+}
+
+.pn-item:last-child {
+    border-bottom: none;
+}
+
+.pn-item:hover {
+    background: var(--surface-2);
+}
+
+.pn-item.unread {
+    background: var(--surface-2);
+}
+
+.pn-item.unread:hover {
+    background: var(--surface-3);
+}
+
+/* Icon */
+.pn-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+/* Content */
+.pn-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.pn-title {
+    margin: 0 0 0.2rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+}
+
+.pn-msg {
+    margin: 0 0 0.3rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.pn-time {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    opacity: 0.8;
+}
+
+/* Unread dot */
+.pn-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary);
+    flex-shrink: 0;
+    margin-top: 0.35rem;
+}
+
+/* Empty */
+.pn-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 2.5rem 1rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}

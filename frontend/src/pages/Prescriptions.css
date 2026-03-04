@@ -1,0 +1,277 @@
+/* ─── Filter Bar ───────────────────────────────────────────── */
+.rx-filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.rx-filter-search {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.rx-filter-search input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.875rem;
+    color: var(--text);
+}
+
+.rx-filter-search svg {
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.rx-filter-count {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--text-subtle);
+    white-space: nowrap;
+}
+
+/* ─── Dropdown ─────────────────────────────────────────────── */
+.rx-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    max-height: 220px;
+    overflow-y: auto;
+    z-index: 100;
+    box-shadow: var(--shadow-xl);
+}
+
+.rx-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.rx-dropdown-item:hover {
+    background: var(--surface-2);
+}
+
+.rx-dropdown-item.selected {
+    background: var(--primary-light, #eff6ff);
+    color: var(--accent);
+}
+
+.rx-dropdown-item p {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.rx-dropdown-item span {
+    font-size: 0.75rem;
+    color: var(--text-subtle);
+}
+
+.rx-patient-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* ─── Actions ──────────────────────────────────────────────── */
+.rx-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.rx-btn-download,
+.rx-btn-delete {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.rx-btn-download {
+    background: var(--surface-2);
+    color: var(--accent);
+}
+
+.rx-btn-download:hover:not(:disabled) {
+    background: var(--accent);
+    color: white;
+}
+
+.rx-btn-delete {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+.rx-btn-delete:hover {
+    background: var(--danger);
+    color: white;
+}
+
+.rx-spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--accent);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ─── Modal Specifics ──────────────────────────────────────── */
+.rx-modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 760px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-xl);
+    animation: slideUp 0.25s ease;
+}
+
+.rx-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.5rem 1.75rem;
+    border-bottom: 1px solid var(--border-light);
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    border-radius: 20px 20px 0 0;
+}
+
+.rx-modal-body {
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.rx-form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.rx-form-section h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0 0 0.25rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-subtle);
+    font-weight: 600;
+}
+
+.rx-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.rx-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rx-add-med-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--surface-2);
+    border: none;
+    border-radius: 8px;
+    padding: 0.3rem 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.rx-add-med-btn:hover {
+    background: var(--accent);
+    color: white;
+}
+
+/* ─── Medication Rows ──────────────────────────────────────── */
+.rx-med-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr auto;
+    gap: 0.5rem;
+    align-items: center;
+    background: var(--surface-2);
+    padding: 0.75rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+.rx-med-row input {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.45rem 0.7rem;
+    font-size: 0.82rem;
+    color: var(--text);
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.rx-remove-med {
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 7px;
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .rx-two-col {
+        grid-template-columns: 1fr;
+    }
+
+    .rx-med-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}

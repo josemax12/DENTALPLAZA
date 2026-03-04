@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+dist/
+dist_electron/
+build/
+.next/
+.server/
+.client/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Database
+database.sqlite
+postgres_data/
+redis_data/
+
+# Backend specific
+dist/
+*.log
+
+# Frontend specific
+dist/
+dist_electron/
+.vite/
