@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { ScheduleModule } from '@nestjs/schedule';
+import { join } from 'path';
 import { AuthModule } from './modules/auth/auth.module';
 import { PacientesModule } from './modules/pacientes/pacientes.module';
 import { CitasModule } from './modules/citas/citas.module';
@@ -19,17 +20,14 @@ import { PagosModule } from './modules/pagos/pagos.module';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({
-        type: config.get('DB_TYPE') === 'postgres' ? 'postgres' : 'sqlite',
-        host: config.get<string>('DB_HOST'),
-        port: config.get<number>('DB_PORT'),
-        username: config.get<string>('DB_USER'),
-        password: config.get<string>('DB_PASSWORD'),
-        database: config.get<string>('DB_NAME') || 'database.sqlite',
+        type: config.get('DATABASE_URL') ? 'postgres' : 'sqlite',
+        url: config.get<string>('DATABASE_URL'),
+        database: config.get('DATABASE_URL') ? undefined : 'database.sqlite',
         entities: [join(__dirname, '**', '*.entity.{ts,js}')],
         synchronize: true, // ¡Cuidado en producción real!
         logging: false,
         ssl: config.get('DB_SSL') === 'true' ? { rejectUnauthorized: false } : false,
-      }),
+      } as TypeOrmModuleOptions),
     }),
     ScheduleModule.forRoot(),
     AuthModule,
