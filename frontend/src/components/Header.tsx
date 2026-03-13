@@ -9,7 +9,7 @@ import { es } from 'date-fns/locale';
 import api from '../services/api';
 import './Header.css';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+const API_URL = import.meta.env.VITE_API_URL || 'https://dentalplaza.onrender.com';
 
 const Header = () => {
     const { user } = useAuthStore();
