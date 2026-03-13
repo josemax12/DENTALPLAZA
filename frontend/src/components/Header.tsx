@@ -17,7 +17,7 @@ const Header = () => {
     const queryClient = useQueryClient();
     const [showNotifications, setShowNotifications] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
-    const [socket, setSocket] = useState<Socket | null>(null);
+    const [_, setSocket] = useState<Socket | null>(null);
 
     // Fetch notifications
     const { data: notifications = [] } = useQuery({

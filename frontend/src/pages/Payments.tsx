@@ -3,8 +3,8 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import api from '../services/api';
 import {
     Plus, DollarSign, TrendingUp, Clock, CheckCircle2,
-    AlertCircle, Search, X, ChevronDown, CreditCard,
-    Banknote, Smartphone, Trash2, Edit2, ArrowUpCircle
+    Search, X, ChevronDown, CreditCard,
+    Banknote, Smartphone, Trash2, ArrowUpCircle
 } from 'lucide-react';
 import './Payments.css';
 
