@@ -24,7 +24,7 @@ async function bootstrap() {
 
   // CORS para el frontend
   app.enableCors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+    origin: [process.env.FRONTEND_URL || 'http://localhost:5173', 'https://jazzy-cassata-528b30.netlify.app', 'http://localhost:5173'],
     credentials: true,
   });
 
