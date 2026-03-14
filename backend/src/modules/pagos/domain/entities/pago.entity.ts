@@ -64,7 +64,7 @@ export class Pago {
     @Column({ type: 'text', nullable: true })
     notas: string;
 
-    @Column({ name: 'fecha_pago', type: 'datetime', nullable: true })
+    @Column({ name: 'fecha_pago', type: 'timestamp', nullable: true })
     fechaPago: Date;
 
     @CreateDateColumn({ name: 'created_at' })
